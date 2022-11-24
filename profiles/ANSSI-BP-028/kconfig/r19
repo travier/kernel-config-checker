@@ -1,0 +1,11 @@
+# Émet un rapport sur les conditions d'appel à la macro noyau BUG()
+# et tue le processus à l'origine de l'appel. Ne pas positionner cette variable
+# peut passer sous silence un certain nombre d'erreurs critiques.
+CONFIG_BUG=y
+# Arrête le système en cas d'erreur critique pour couper court à tout comportement
+# erroné.
+CONFIG_PANIC_ON_OOPS=y
+# Empêche le redémarrage de la machine suite à un panic ce qui coupe court à
+# toute tentative d'attaque par force brute. Ceci a évidemment un impact fort
+# sur des serveurs en production.
+CONFIG_PANIC_TIMEOUT=-1

@@ -1,0 +1,13 @@
+# Interdit l'exécution d'une nouvelle image noyau à chaud.
+# CONFIG_KEXEC is not set
+# Interdit le passage en mode hibernation , qui permet de substituer l'image
+# noyau à son insu.
+# CONFIG_HIBERNATION is not set
+# Désactive le support de format binaire arbitraire.
+# CONFIG_BINFMT_MISC is not set
+# Impose l'utilisation des ptys modernes (devpts) dont on peut contrôler le
+# nombre et l'usage.
+# CONFIG_LEGACY_PTYS is not set
+# Si le support des modules n'est pas absolument nécessaire celui -ci doit être
+# désactivé.
+# CONFIG_MODULES is not set

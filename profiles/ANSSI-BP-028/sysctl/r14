@@ -1,0 +1,19 @@
+# Désactive la création de coredump pour les exécutables setuid
+# Notez qu 'il est possible de désactiver tous les coredumps avec la
+# configuration CONFIG_COREDUMP=n
+fs.suid_dumpable = 0
+# Disponible à partir de la version 4.19 du noyau Linux , permet d'interdire
+# l'ouverture des FIFOS et des fichiers "réguliers" qui ne sont pas la propriété
+# de l'utilisateur dans les dossiers sticky en écriture pour tout le monde.
+fs.protected_fifos =2
+fs.protected_regular =2
+# Restreint la création de liens symboliques à des fichiers dont l'utilisateur
+# est propriétaire. Cette option fait partie des mécanismes de prévention contre
+# les vulnérabilités de la famille Time of Check - Time of Use (Time of Check -
+# Time of Use)
+fs.protected_symlinks =1
+# Restreint la création de liens durs à des fichiers dont l'utilisateur est
+# propriétaire. Ce sysctl fait partie des mécanismes de prévention contre les
+# vulnérabilités Time of Check - Time of Use , mais aussi contre la possibilité de
+# conserver des accès à des fichiers obsolètes
+fs.protected_hardinks =1

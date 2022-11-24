@@ -1,0 +1,11 @@
+# Active le support des extensions d'adresse physique , ce qui est un prérequis
+# pour le support du bit de permission NX dans la table des pages qui permet de
+# marquer certaines pages comme non exécutables.
+CONFIG_HIGHMEM64G=y
+CONFIG_X86_PAE=y
+# Interdit l'utilisation d'adresses mémoire en dessous d'une certaine valeur
+# (contre -mesure contre les null pointer dereference).
+CONFIG_DEFAULT_MMAP_MIN_ADDR=65536
+# Rend non prédictible l'adresse de base du noyau. Cette option complexifie la
+# tâche d'un attaquant.
+CONFIG_RANDOMIZE_BASE=y

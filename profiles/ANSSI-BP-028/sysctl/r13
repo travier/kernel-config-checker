@@ -1,0 +1,7 @@
+# Quand IPv6 n’est pas utilisé, il est recommandé de désactiver la pile IPv6 en :
+# - ajoutant la directive ipv6.disable=1 à la liste des paramètres du noyau choisi lors
+#   du démarrage en plus de celles déjà présentes dans les fichiers de configuration
+#   du chargeur de démarrage,
+# - activant les options de configuration du réseau présentées dans la liste ci-dessous.
+net.ipv6.conf.default.disable_ipv6 =1
+net.ipv6.conf.all.disable_ipv6 =1

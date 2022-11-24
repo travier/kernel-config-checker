@@ -1,0 +1,21 @@
+# Active la possibilité de filtrer les appels système faits par une
+# application.
+CONFIG_SECCOMP=y
+# Active la possibilité d'utiliser des script BPF (Berkeley Packet Filter).
+CONFIG_SECCOMP_FILTER=y
+# Active les primitives de sécurité du noyau Linux , nécessaire pour les LSM.
+CONFIG_SECURITY=y
+# Active Yama , qui permet de limiter simplement l'usage de l'appel système
+# ptrace (). Une fois les modules de sécurité utilisés par le système
+# sélectionné , il convient de désactiver le support des autres modules de
+# sécurité dans le noyau afin de réduire la surface d'attaque.
+CONFIG_SECURITY_YAMA=y
+# Assure que les structures noyau associées aux LSM sont toujours mappées en
+# lecture seule après le démarrage du système. Dans le cas où SELinux est
+# utilisé , il faut s'assurer que CONFIG_SECURITY_SELINUX_DISABLE is not set ,
+# pour que cette option soit disponible. Il n'est alors plus possible de
+# désactiver un LSM une fois le noyau démarré. Il est en revanche encore
+# possible de le faire en modifiant la ligne de commande du noyau. Pour le
+# noyau 4.18 les LSM présents sont: AppArmor , LoadPin , SELinux , Smack , TOMOYO
+# et Yama.
+# CONFIG_SECURITY_WRITABLE_HOOKS is not set

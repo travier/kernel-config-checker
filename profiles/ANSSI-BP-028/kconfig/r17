@@ -1,0 +1,30 @@
+# Positionne les informations de chaînage des blocs libres de l'allocateur de
+# manière aléatoire.
+CONFIG_SLAB_FREELIST_RANDOM=y
+# CONFI_SLAB est une dépendance de CONFIG_SLAB_FREELIST_RANDOM
+CONFIG_SLUB=y
+# Protège les métadonnées de l'allocateur en intégrité.
+CONFIG_SLAB_FREELIST_HARDENED=y
+# A partir de la version 4.13 du noyau , cette option désactive le merge des
+# caches SLAB
+CONFIG_SLAB_MERGE_DEFAULT=n
+# Active la vérification des structures de l'allocateur mémoire et réinitialise
+# à zéro les zones allouées à leur libération (nécessite l'activation de
+# l'option de configuration de la mémoire page_poison=on ajoutée à la liste des
+# paramètres du noyau lors du démarrage). Il est préférable d'utiliser
+# l'option de configuration slub_debug de la mémoire ajoutée à la liste des
+# paramètres du noyau lors du démarrage car elle permet une gestion plus fine
+# du slub debug.
+CONFIG_SLUB_DEBUG=y
+# Nettoie les pages mémoire au moment de leur libération.
+CONFIG_PAGE_POISONING=y
+# Nettoyage en profondeur désactivé. Cette option a un coût important;
+# cependant si l'impact en performance est compatible avec le besoin
+# opérationnel de l'équipement il est recommandé de l'activer ( <=5.10)
+CONFIG_PAGE_POISONING_NO_SANITY=y
+# Le nettoyage des pages mémoire est effectué avec une réécriture de zéros en
+# lieu et place des données ( <=5.10)
+CONFIG_PAGE_POISONING_ZERO=y
+# Désactive la rétrocompatibilité avec brk() qui rend impossible une
+# implémentation de brk() avec l'ASLR.
+# CONFIG_COMPAT_BRK is not set

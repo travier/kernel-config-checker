@@ -1,0 +1,19 @@
+# Activate le mode complet 64 bits.
+CONFIG_X86_64=y
+# Interdit l'utilisation d'adresses mémoire en dessous d'une certaine valeur
+# (contre -mesure contre les null pointer dereference).
+CONFIG_DEFAULT_MMAP_MIN_ADDR=65536
+# Rend non prédictible l'adresse de base du noyau , cette option complexifie
+# la tâche d'un attaquant.
+CONFIG_RANDOMIZE_BASE=y
+# Rend non prédictible l'adresse à laquelle les composants du noyau sont
+# exposés dans l'espace d'adressage des processus.
+CONFIG_RANDOMIZE_MEMORY=y
+# Contre -mesure à l'attaque Meltdown.
+CONFIG_PAGE_TABLE_ISOLATION=y
+# Désactive la rétro -compatibilité 32 bits , ce qui permet de réduire la
+# surface d'attaque mais empêche d'exécuter des binaires 32 bits.
+# CONFIG_IA32_EMULATION is not set
+# Interdit la surcharge par processus de la Local Descriptor Table
+# (mécanisme lié à l'usage de la segmentation).
+# CONFIG_MODIFY_LDT_SYSCALL is not set

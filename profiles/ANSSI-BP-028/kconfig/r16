@@ -1,0 +1,10 @@
+# Vérifie les structures de gestion des autorisations.
+CONFIG_DEBUG_CREDENTIALS=y
+# Vérifie les structures de notification.
+CONFIG_DEBUG_NOTIFIERS=y
+# Vérifie les listes noyau.
+CONFIG_DEBUG_LIST=y
+# Vérifie les tables de Scatter -Gather du noyau.
+CONFIG_DEBUG_SG=y
+# Génère un appel à BUG() en cas de détection de corruption.
+CONFIG_BUG_ON_DATA_CORRUPTION=y

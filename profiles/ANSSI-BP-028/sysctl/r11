@@ -1,0 +1,4 @@
+# Il est recommandé de charger le module de sécurité Yama lors du démarrage, par
+# exemple en passant la directive security=yama au noyau, et d’affecter à l’option de
+# configuration du noyau kernel.yama.ptrace_scope une valeur au moins égale à 1.
+kernel.yama.ptrace_scope=1

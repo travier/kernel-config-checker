@@ -1,0 +1,67 @@
+# Cette option a remplacé CONFIG_DEBUG_RODATA dans le noyau ( >=4.11)
+# qui était une dépendance de CONFIG_DEBUG_KERNEL
+CONFIG_STRICT_KERNEL_RWX=y
+# CONFIG_ARCH_OPTIONAL_KERNEL_RWX et CONFIG_ARCH_HAS_STRICT_KERNEL_RWX sont
+# des dépendances de CONFIG_STRICT_KERNEL_RWX
+CONFIG_ARCH_OPTIONAL_KERNEL_RWX=y
+CONFIG_ARCH_HAS_STRICT_KERNEL_RWX=y
+# Vérifie et rapporte les permissions de mapping mémoire dangereuses , par
+# exemple , lorsque les pages noyau sont en écriture et sont exécutables.
+# Cette option n'est pas disponible sur l'ensemble des architectures
+# matérielles (x86 >=4.4, arm64 >=4.10, etc.).
+CONFIG_DEBUG_WX=y
+# Désactive le système de fichiers utilisé uniquement dans le cadre de
+# débogage. Protéger ce système de fichiers nécessite un travail
+# supplémentaire.
+CONFIG_DEBUG_FS=n
+# A partir de la version 4.18 du noyau , ces options ajoutent
+# -fstack -protector -strong à la compilation afin de renforcer le stack canary ,
+# il est nécessaire d'avoir une version de GCC au moins égale à 4.9.
+# Avant la version 4.18 du noyau linux , il faut utiliser les options
+# CONFIG_CC_STACKPROTECTOR et CONFIG_CC_STACKPROTECTOR_STRONG
+CONFIG_STACKPROTECTOR=y
+CONFIG_STACKPROTECTOR_STRONG=y
+# Interdit l'accès direct à la mémoire physique.
+# En cas de besoin et uniquement dans ce cas , il est possible d'activer un
+# accès strict à la mémoire , limitant ainsi son accès , avec les options
+# CONFIG_STRICT_DEVMEM =y et CONFIG_IO_STRICT_DEVMEM =y
+# CONFIG_DEVMEM is not set
+# Détecte la corruption de la pile pendant l'appel à l'ordonnanceur
+CONFIG_SCHED_STACK_END_CHECK=y
+# Impose une vérification des limites du mapping mémoire du processus au
+# moment des copies de données.
+CONFIG_HARDENED_USERCOPY=y
+# Interdit de revenir à une vérification du mapping auprès de l'allocateur si
+# l'option précédente a échoué ( <=5.15)
+# CONFIG_HARDENED_USERCOPY_FALLBACK is not set
+# Ajout de pages de garde entre les piles noyau. Cela protège contre les effets
+# de bord des débordements de pile (cette option n'est pas supportée sur toutes
+# les architectures).
+CONFIG_VMAP_STACK=y
+# Vérifications exhaustives sur les compteurs de référence du noyau ( <=5.4)
+CONFIG_REFCOUNT_FULL=y
+# Vérifie les actions de recopie mémoire qui pourraient provoquer une corruption
+# de structure dans les fonctions noyau str *() et mem *(). Cette vérification est
+# effectuée à la compilation et à l'exécution.
+CONFIG_FORTIFY_SOURCE=y
+# Désactive l'usage dangereux de l'ACPI , pouvant entrainer une écriture directe
+# en mémoire physique.
+# CONFIG_ACPI_CUSTOM_METHOD is not set
+# Interdit tout accès direct à la mémoire du noyau à partir du userspace ( <=5.12)
+# CONFIG_DEVKMEM is not set
+# Interdit la fourniture de la disposition de l'image noyau
+# CONFIG_PROC_KCORE is not set
+# Désactive la rétrocompatibilité VDSO , qui rend impossible l'usage de l'ASLR
+#CONFIG_COMPAT_VDSO is not set
+# Empèche les utilisateurs non privilégiés de récupérer des adresses noyau
+# avec dmesg (8)
+CONFIG_SECURITY_DMESG_RESTRICT=y
+# Active les retpoline qui sont nécessaires pour se protéger de Spectre v2
+# GCC >= 7.3.0 est requis.
+CONFIG_RETPOLINE=y
+# Désactive la table vsyscall. Elle n'est plus requise par la libc et est une
+# source potentielle de ROP gadgets.
+CONFIG_LEGACY_VSYSCALL_NONE=y
+CONFIG_LEGACY_VSYSCALL_EMULATE=n
+CONFIG_LEGACY_VSYSCALL_XONLY=n
+CONFIG_X86_VSYSCALL_EMULATION=n

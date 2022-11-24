@@ -1,0 +1,2 @@
+# Interdit le chargement des modules noyau (sauf ceux déjà chargés à ce point)
+kernel.modules_disabled =1

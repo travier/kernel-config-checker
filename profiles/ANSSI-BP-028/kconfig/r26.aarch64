@@ -1,0 +1,12 @@
+# Interdit l'utilisation d'adresses mémoire en dessous d'une certaine valeur
+# (contre -mesure contre les null pointer dereference).
+CONFIG_DEFAULT_MMAP_MIN_ADDR=32768
+# Rend non prédictible l'adresse de base du noyau , cette option complexifie
+# la tâche d'un attaquant. L'entropie nécessaire à la génération de l'aléa
+# doit être fournie par l'UEFI ou , à défaut , par le chargeur de démarrage.
+CONFIG_RANDOMIZE_BASE=y
+# Interdit les accès par le noyau à la mémoire utilisateur (mécanisme
+# équivalent sur ARM à SMAP sur 86_64).
+CONFIG_ARM64_SW_TTBR0_PAN=y
+# Contre mesure à l'attaque Meltdown.
+CONFIG_UNMAP_KERNEL_AT_EL0=y
