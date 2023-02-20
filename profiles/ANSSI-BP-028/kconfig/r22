@@ -1,4 +1,4 @@
 # Désactive le plan IPv6
-# CONFIG_IPV6 option set.
+# CONFIG_IPV6 option is not set
 # Permet de prévenir les attaques de type SYN flood.
 CONFIG_SYN_COOKIES =y
