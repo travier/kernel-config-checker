@@ -25,7 +25,10 @@ $ curl -O https://src.fedoraproject.org/rpms/kernel/raw/f37/f/kernel-aarch64-fed
 2. Match them with a config profile:
 
 ```
-$ go run main.go -config kernel-x86_64-rhel.config,kernel-aarch64-rhel.config -profile ANSSI-BP-028
+$ go run main.go \
+    -config examples/c9s/kernel-x86_64-rhel.config,examples/c9s/kernel-aarch64-rhel.config \
+    -profile profiles/ANSSI-BP-028 \
+    > results.csv
 ...
 ```
 
